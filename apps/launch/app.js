@@ -54,10 +54,10 @@ setWatch(function() {
 setWatch(function() { // run
   if (!apps[selected].src) return;
   if (require("Storage").read(apps[selected].src)===undefined) {
-    E.showMessage("App Source\nNot found");
+    E.showMessage("Sem Aplicações");
     setTimeout(drawMenu, 2000);
   } else {
-    E.showMessage("Loading...");
+    E.showMessage("A carregar...");
     load(apps[selected].src);
   }
 }, BTN2, {repeat:true,edge:"falling"});
