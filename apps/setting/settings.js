@@ -33,7 +33,7 @@ function resetSettings() {
     vibrate: true,         // Vibration enabled by default. App must support
     beep: "vib",            // Beep enabled by default. App must support
     timezone: 0,           // Set the timezone for the device
-    HID: false,           // BLE HID mode, off by default
+    HID: true,           // BLE HID mode, on by default
     clock: null,           // a string for the default clock's name
     "12hour" : false,      // 12 or 24 hour clock?
     brightness: 1,       // LCD brightness from 0 to 1
@@ -63,7 +63,7 @@ function showMainMenu() {
   var beepN = ["Off", "Piezo", "Vibrate"];
   const mainmenu = {
     '': { 'title': 'Settings' },
-    'Make Connectable': ()=>makeConnectable(),
+    /*'Make Connectable': ()=>makeConnectable(),
     'App/Widget Settings': ()=>showAppSettingsMenu(),
     'BLE': {
       value: settings.ble,
@@ -121,12 +121,12 @@ function showMainMenu() {
         settings.HID = !settings.HID;
         updateSettings();
       }
-    },
-    'Set Time': ()=>showSetTimeMenu(),
-    'LCD': ()=>showLCDMenu(),
-    'Reset Settings': ()=>showResetMenu(),
-    'Turn Off': ()=>Bangle.off(),
-    '< Back': ()=>load()
+    },*/
+    'Hora': ()=>showSetTimeMenu(),
+    'Brilho': ()=>showLCDMenu(),
+    'Reset': ()=>showResetMenu(),
+    'Desligar': ()=>Bangle.off(),
+    '< Anterior': ()=>load()
   };
   return E.showMenu(mainmenu);
 }
@@ -134,8 +134,8 @@ function showMainMenu() {
 function showLCDMenu() {
   const lcdMenu = {
     '': { 'title': 'LCD' },
-    '< Back': ()=>showMainMenu(),
-    'LCD Brightness': {
+    '< Anterior': ()=>showMainMenu(),
+    'Brilho': {
       value: settings.brightness,
       min: 0.1,
       max: 1,
@@ -146,7 +146,7 @@ function showLCDMenu() {
         Bangle.setLCDBrightness(settings.brightness);
       }
     },
-    'LCD Timeout': {
+    'Desligar Ecran': {
       value: settings.timeout,
       min: 0,
       max: 60,
@@ -242,8 +242,8 @@ function showLCDMenu() {
 function showLocaleMenu() {
   const localemenu = {
     '': { 'title': 'Locale' },
-    '< Back': ()=>showMainMenu(),
-    'Time Zone': {
+    '< Anterior': ()=>showMainMenu(),
+    'Zona Hora': {
       value: settings.timezone,
       min: -11,
       max: 12,
@@ -329,7 +329,7 @@ function showSetTimeMenu() {
   d = new Date();
   const timemenu = {
     '': {
-      'title': 'Set Time',
+      'title': 'Definir Hora',
       'predraw': function () {
         d = new Date();
         timemenu.Hour.value = d.getHours();
@@ -340,8 +340,8 @@ function showSetTimeMenu() {
         timemenu.Year.value = d.getFullYear();
       }
     },
-    '< Back': ()=>showMainMenu(),
-    'Hour': {
+    '< Anterior': ()=>showMainMenu(),
+    'Hora': {
       value: d.getHours(),
       min: 0,
       max: 23,
@@ -352,7 +352,7 @@ function showSetTimeMenu() {
         setTime(d.getTime() / 1000);
       }
     },
-    'Minute': {
+    'Minutos': {
       value: d.getMinutes(),
       min: 0,
       max: 59,
@@ -363,7 +363,7 @@ function showSetTimeMenu() {
         setTime(d.getTime() / 1000);
       }
     },
-    'Second': {
+    'Segundos': {
       value: d.getSeconds(),
       min: 0,
       max: 59,
@@ -374,7 +374,7 @@ function showSetTimeMenu() {
         setTime(d.getTime() / 1000);
       }
     },
-    'Date': {
+    'Data': {
       value: d.getDate(),
       min: 1,
       max: 31,
@@ -385,7 +385,7 @@ function showSetTimeMenu() {
         setTime(d.getTime() / 1000);
       }
     },
-    'Month': {
+    'Mês': {
       value: d.getMonth() + 1,
       min: 1,
       max: 12,
@@ -396,7 +396,7 @@ function showSetTimeMenu() {
         setTime(d.getTime() / 1000);
       }
     },
-    'Year': {
+    'Ano': {
       value: d.getFullYear(),
       min: 2019,
       max: 2100,
@@ -414,7 +414,7 @@ function showSetTimeMenu() {
 function showAppSettingsMenu() {
   let appmenu = {
     '': { 'title': 'App Settings' },
-    '< Back': ()=>showMainMenu(),
+    '< Anterior': ()=>showMainMenu(),
   }
   const apps = storage.list(/\.settings\.js$/)
     .map(s => s.substr(0, s.length-12))
