@@ -4,9 +4,9 @@
   var firstBPM = true; // first reading since sensor turned on
 
   function draw() {
-    var width = 24;
+    var width = 30;
   	g.reset();
-    g.setFont("6x8", 4);
+    g.setFont("6x8", 2);
     g.setFontAlign(0, 0);
     g.clearRect(this.x,this.y+15,this.x+width,this.y+23); // erase background
     var bpm = currentBPM, isCurrent = true;
@@ -47,5 +47,5 @@
   Bangle.setHRMPower(Bangle.isLCDOn());
 
   // add your widget
-  WIDGETS["hrm"]={area:"tl",width:24,draw:draw};
+  WIDGETS["hrm"]={area:"tl",width:30,draw:draw};
 })();
