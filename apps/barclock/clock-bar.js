@@ -157,7 +157,7 @@
   
   setWatch(function(e){
 var isLong = (e.time-e.lastTime)>2;
-if (isLong) Bangle.showLauncher;
+if (isLong) Bangle.showLauncher();
 }, BTN2, {repeat: false, edge: 'falling'});
 
   Bangle.on('lcdPower', function (on) {
