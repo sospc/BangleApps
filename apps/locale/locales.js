@@ -63,10 +63,11 @@ var locales = {
         ampm: { 0: "am", 1: "pm" },
         timePattern: { 0: "%HH:%MM:%SS ", 1: "%HH:%MM" },
         datePattern: { 0: "%b %d %Y", 1: "%d/%m/%Y" }, // Feb 28 2020" // "01/03/2020"(short)
-        abmonth: "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec",
-        month: "January,February,March,April,May,June,July,August,September,October,November,December",
-        abday: "Sun,Mon,Tue,Wed,Thu,Fri,Sat",
-        day: "Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday",
+        abmonth: "Jan,Fev,Mar,Abr,Mai,Jun,Jul,Ago,Set,Out,Nov,Dez",
+        month: "Janeiro,Fevereiro,Março,Abril,Maio,Junho,Julho,Agosto,Setembro,Outubro,Novembro,Dezembro",
+        abday: "Dom,Seg,Ter,Qua,Qui,Sex,Sab",
+        day: "Domingo,Segunda-feira,Terça-feira,Quarta-feira,Quinta-feira,Sexta-feira,Sábado",
+        trans: { yes: "sim", Yes: "Sim", no: "não", No: "Não", ok: "certo", on: "on", off: "off" }
         // No translation for english...
     },
     "de_DE": {
