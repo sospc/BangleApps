@@ -112,7 +112,6 @@ function showMainMenu() {
         }
       }
     },
-    'Locale': ()=>showLocaleMenu(),
     'Select Clock': ()=>showClockMenu(),
     'HID': {
       value: settings.HID,
@@ -122,6 +121,7 @@ function showMainMenu() {
         updateSettings();
       }
     },*/
+    'Locale': ()=>showLocaleMenu(),
     'Hora': ()=>showSetTimeMenu(),
     'LCD': ()=>showLCDMenu(),
     'Reset': ()=>showResetMenu(),
