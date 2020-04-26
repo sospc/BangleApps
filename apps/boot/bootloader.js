@@ -9,7 +9,7 @@ if (!clockApp) {
     clockApp = require("Storage").read(clockApps[0].src);
   delete clockApps;
 }
-if (!clockApp) clockApp=`E.showMessage("No Clock Found");
+if (!clockApp) clockApp=`E.showMessage("Sem Relógio");
 setWatch(() => {
   Bangle.showLauncher();
 }, BTN2, {repeat:false,edge:"falling"});)
@@ -17,7 +17,7 @@ setWatch(() => {
 delete settings;
 // check to see if our clock is wrong - if it is use GPS time
 if ((new Date()).getFullYear()==1970) {
-  E.showMessage("Searching for\nGPS time");
+  E.showMessage("A acertar Relógio");
   Bangle.on('GPS',function cb(g) {
     Bangle.setGPSPower(0);
     Bangle.removeListener("GPS",cb);
