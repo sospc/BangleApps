@@ -63,7 +63,7 @@ function showMainMenu() {
   var beepN = ["Off", "Piezo", "Vibrate"];
   const mainmenu = {
     '': { 'title': 'Definições' },
-    /*'Make Connectable': ()=>makeConnectable(),
+    'Make Connectable': ()=>makeConnectable(),
     'App/Widget Settings': ()=>showAppSettingsMenu(),
     'BLE': {
       value: settings.ble,
@@ -120,7 +120,7 @@ function showMainMenu() {
         settings.HID = !settings.HID;
         updateSettings();
       }
-    },*/
+    },
     'Definições Locais': ()=>showLocaleMenu(),
     'Hora': ()=>showSetTimeMenu(),
     'LCD': ()=>showLCDMenu(),
