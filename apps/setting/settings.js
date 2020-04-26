@@ -33,7 +33,7 @@ function resetSettings() {
     vibrate: true,         // Vibration enabled by default. App must support
     beep: "vib",            // Beep enabled by default. App must support
     timezone: 0,           // Set the timezone for the device
-    HID: true,           // BLE HID mode, on by default
+    HID: false,           // BLE HID mode, off by default
     clock: null,           // a string for the default clock's name
     "12hour" : false,      // 12 or 24 hour clock?
     brightness: 1,       // LCD brightness from 0 to 1
