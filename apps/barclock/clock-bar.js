@@ -9,7 +9,7 @@
   { // add some more info to locale
     let date = new Date()
     date.setFullYear(1111)
-    date.setMonth(1, 3) // februari: months are zero-indexed
+    date.setMonth(1, 3) // february: months are zero-indexed
     const localized = locale.date(date, true)
     locale.dayFirst = /3.*2/.test(localized)
     locale.hasMeridian = (locale.meridian(date) !== '')
@@ -153,7 +153,12 @@
   Bangle.loadWidgets()
   Bangle.drawWidgets()
   // Show launcher when middle button pressed
-  setWatch(Bangle.showLauncher, BTN2, {repeat: false, edge: 'falling'})
+  /*setWatch(Bangle.showLauncher, BTN2, {repeat: false, edge: 'falling'})*/
+  
+  setWatch(function(e){
+var isLong = (e.time-e.lastTime)>5;
+if (isLong) Bangle.showLauncher;
+}, BTN2, {repeat: false, edge: 'falling'});
 
   Bangle.on('lcdPower', function (on) {
     if (on) {
