@@ -121,7 +121,7 @@ function showMainMenu() {
         updateSettings();
       }
     },*/
-    'Locale': ()=>showLocaleMenu(),
+    'Definições Locais': ()=>showLocaleMenu(),
     'Hora': ()=>showSetTimeMenu(),
     'LCD': ()=>showLCDMenu(),
     'Reset': ()=>showResetMenu(),
