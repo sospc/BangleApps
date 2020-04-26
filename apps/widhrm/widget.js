@@ -4,11 +4,11 @@
   var firstBPM = true; // first reading since sensor turned on
 
   function draw() {
-    var width = 30;
+    var width = 300;
   	g.reset();
     g.setFont("6x8", 2);
     g.setFontAlign(0, 0);
-    g.clearRect(this.x,this.y+200,this.x+width,this.y+300); // erase background
+    g.clearRect(this.x,this.y+10,this.x+width,this.y+20); // erase background
     var bpm = currentBPM, isCurrent = true;
     if (bpm===undefined) {
       bpm = lastBPM;
@@ -19,7 +19,7 @@
     g.setColor(isCurrent ? "#ffffff" : "#808080");
     g.drawString(bpm, this.x+width/2, this.y+19);
     g.setColor(isCurrent ? "#ff0033" : "#808080");
-    g.drawImage(atob("CgoCAAABpaQ//9v//r//5//9L//A/+AC+AAFAA=="),this.x+(width-10)/1,this.y+2);
+    g.drawImage(atob("CgoCAAABpaQ//9v//r//5//9L//A/+AC+AAFAA=="),this.x+(width-10)/2,this.y+2);
     g.setColor(-1);
   }
 
@@ -47,5 +47,5 @@
   Bangle.setHRMPower(Bangle.isLCDOn());
 
   // add your widget
-  WIDGETS["hrm"]={area:"tl",width:30,draw:draw};
+  WIDGETS["hrm"]={area:"tl",width:300,draw:draw};
 })();
