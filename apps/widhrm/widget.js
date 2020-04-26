@@ -6,9 +6,9 @@
   function draw() {
     var width = 24;
   	g.reset();
-    g.setFont("6x8", 2);
+    g.setFont("6x8", 1);
     g.setFontAlign(0, 0);
-    g.clearRect(this.x,this.y+0,this.x+width,this.y+0); // erase background
+    g.clearRect(this.x,this.y+15,this.x+width,this.y+23); // erase background
     var bpm = currentBPM, isCurrent = true;
     if (bpm===undefined) {
       bpm = lastBPM;
@@ -19,7 +19,7 @@
     g.setColor(isCurrent ? "#ffffff" : "#808080");
     g.drawString(bpm, this.x+width/2, this.y+19);
     g.setColor(isCurrent ? "#ff0033" : "#808080");
-    g.drawImage(atob("CgoCAAABpaQ//9v//r//5//9L//A/+AC+AAFAA=="),this.x+(width-10)/2,this.y+2);
+    g.drawImage(atob("CgoCAAABpaQ//9v//r//5//9L//A/+AC+AAFAA=="),this.x+(width-10)/2,this.y+1);
     g.setColor(-1);
   }
 
