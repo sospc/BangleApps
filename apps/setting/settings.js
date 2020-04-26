@@ -243,7 +243,7 @@ function showLocaleMenu() {
   const localemenu = {
     '': { 'title': 'Locale' },
     '< Anterior': ()=>showMainMenu(),
-    'Zona Hora': {
+    'Timezone': {
       value: settings.timezone,
       min: -11,
       max: 12,
