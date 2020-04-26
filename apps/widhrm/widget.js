@@ -19,7 +19,7 @@
     g.setColor(isCurrent ? "#ffffff" : "#808080");
     g.drawString(bpm, this.x+width/2, this.y+19);
     g.setColor(isCurrent ? "#ff0033" : "#808080");
-    g.drawImage(atob("CgoCAAABpaQ//9v//r//5//9L//A/+AC+AAFAA=="),this.x+(width-10)/2,this.y+1);
+    g.drawImage(atob("CgoCAAABpaQ//9v//r//5//9L//A/+AC+AAFAA=="),this.x+(width-10)/1,this.y+2);
     g.setColor(-1);
   }
 
