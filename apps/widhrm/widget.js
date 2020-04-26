@@ -8,7 +8,7 @@
   	g.reset();
     g.setFont("6x8", 2);
     g.setFontAlign(0, 0);
-    g.clearRect(this.x,this.y+305,this.x+width,this.y+230); // erase background
+    g.clearRect(this.x,this.y+10,this.x+width,this.y+19); // erase background
     var bpm = currentBPM, isCurrent = true;
     if (bpm===undefined) {
       bpm = lastBPM;
