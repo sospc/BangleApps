@@ -29,7 +29,7 @@ function resetSettings() {
     ble: true,             // Bluetooth enabled by default
     blerepl: true,         // Is REPL on Bluetooth - can Espruino IDE be used?
     log: false,            // Do log messages appear on screen?
-    timeout: 10,           // Default LCD timeout in seconds
+    timeout: 15,           // Default LCD timeout in seconds
     vibrate: true,         // Vibration enabled by default. App must support
     beep: "vib",            // Beep enabled by default. App must support
     timezone: 0,           // Set the timezone for the device
@@ -43,7 +43,7 @@ function resetSettings() {
       wakeOnBTN2: true,
       wakeOnBTN3: true,
       wakeOnFaceUp: false,
-      wakeOnTouch: false,
+      wakeOnTouch: true,
       wakeOnTwist: true,
       twistThreshold: 819.2,
       twistMaxY: -800,
@@ -62,7 +62,7 @@ function showMainMenu() {
   var beepV = [false, true, "vib"];
   var beepN = ["Off", "Piezo", "Vibrate"];
   const mainmenu = {
-    '': { 'title': 'Settings' },
+    '': { 'title': 'Definições' },
     /*'Make Connectable': ()=>makeConnectable(),
     'App/Widget Settings': ()=>showAppSettingsMenu(),
     'BLE': {
@@ -123,7 +123,7 @@ function showMainMenu() {
       }
     },*/
     'Hora': ()=>showSetTimeMenu(),
-    'Brilho': ()=>showLCDMenu(),
+    'LCD': ()=>showLCDMenu(),
     'Reset': ()=>showResetMenu(),
     'Desligar': ()=>Bangle.off(),
     '< Anterior': ()=>load()
@@ -268,9 +268,9 @@ function showLocaleMenu() {
 function showResetMenu() {
   const resetmenu = {
     '': { 'title': 'Reset' },
-    '< Back': ()=>showMainMenu(),
+    '< Anterior': ()=>showMainMenu(),
     'Reset Settings': () => {
-      E.showPrompt('Reset Settings?').then((v) => {
+      E.showPrompt('Fazer Reset?').then((v) => {
         if (v) {
           E.showMessage('Resetting');
           resetSettings();
