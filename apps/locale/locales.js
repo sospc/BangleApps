@@ -49,7 +49,7 @@ var locales = {
         month: "Janeiro,Fevereiro,Março,Abril,Maio,Junho,Julho,Agosto,Setembro,Outubro,Novembro,Dezembro",
         abday: "Dom,Seg,Ter,Qua,Qui,Sex,Sab",
         day: "Domingo,Segunda-feira,Terça-feira,Quarta-feira,Quinta-feira,Sexta-feira,Sábado",
-        trans: { yes: "sim", Yes: "Sim", no: "não", No: "Não", ok: "certo", on: "on", off: "off" }
+        trans: { yes: "sim", Yes: "Sim", no: "não", No: "Não", ok: "ok", on: "on", off: "off" }
     },
     "en_GB": {
         lang: "en_GB",
