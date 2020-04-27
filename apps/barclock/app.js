@@ -1,0 +1,1 @@
+setWatch(()=>load(), BTN3);
