@@ -162,7 +162,7 @@ if (isLong) Bangle.showLauncher();
   
 setWatch(function(e){
 var isLong = (e.time-e.lastTime)<2;
-if (isLong) load("hrm.heartrate.js");
+if (isLong) load("hrm.app.js");
 }, BTN3, {repeat: true, edge: 'falling'});
 
   Bangle.on('lcdPower', function (on) {
