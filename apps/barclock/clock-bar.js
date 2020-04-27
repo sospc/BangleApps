@@ -159,6 +159,10 @@ setWatch(function(e){
 var isLong = (e.time-e.lastTime)>2;
 if (isLong) Bangle.showLauncher();
 }, BTN2, {repeat: false, edge: 'falling'});
+  
+setWatch(function(e) {
+    load("barclock.clock-bar.js");
+}, BTN3, {repeat:true, edge:"rising"});
 
   Bangle.on('lcdPower', function (on) {
     if (on) {
