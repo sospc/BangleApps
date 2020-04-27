@@ -147,48 +147,6 @@
       iTick = undefined
     }
   }
-  
-  NRF.setAdvertising({}, {name: "UREPLAY-BTN-V2"});
-var kb = require("ble_hid_keyboard");
-function onInit() {
-NRF.setServices(undefined, { hid : kb.report });
-}
-var pressTimeout;
-var lastKeyPress = 0;
-function btnPressed() {
-Bangle.buzz();
-E.showMessage("Fizeste um Replay!\nA Guardar...\n","uReplay");
-var time = getTime();
-var timeSince = time - lastKeyPress;
-lastKeyPress = time;
-if (timeSince < 10) return; // ignore if < 10 sec ago 
-if (pressTimeout) return; // ignore a second press within the 10 sec
-// wait 5 seconds
-pressTimeout = setTimeout(function() {
-pressTimeout = undefined;
-NRF.sendHIDReport([0,0,30,0,0,0,0,0], function() {
-              setTimeout(function() {
-            NRF.sendHIDReport([0,0,0,0,0,0,0,0]); 
-          }, 100);
-        });
-}, 5000);
-// wait 7 seconds for replay
-pressTimeout = setTimeout(function() {
-pressTimeout = undefined;
-NRF.sendHIDReport([0,0,31,0,0,0,0,0], function() {
-              setTimeout(function() {
-            NRF.sendHIDReport([0,0,0,0,0,0,0,0]); 
-          }, 100);
-        });
-}, 7000);
-}
-// trigger btnPressed whenever the button is pressed
-setWatch(btnPressed, BTN1, {edge:"falling",repeat:true,debounce:50});
-// Long pressed button do a reboot - 5 seconds
-setWatch(function(e){
-var isLong = (e.time-e.lastTime)>5;
-if (isLong) E.reboot();
-}, BTN, {repeat:true, debounce:50, edge:"falling"});
 
   // clean app screen
   g.clear()
