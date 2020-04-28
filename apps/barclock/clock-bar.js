@@ -178,7 +178,7 @@ if (isLong) load("hrm.app.js");
 // ---------------------------------------
 var pressTimeout;
 var lastKeyPress = 0;
-if (NRF.getSecurityStatus().connected) { g.clear(); }
+if (NRF.getSecurityStatus().connected) {}
 else {E.showMessage("Equipamento \n Sem cobertura...\n","AVISO!");}
 function btnPressed() {
 if (NRF.getSecurityStatus().connected) {
