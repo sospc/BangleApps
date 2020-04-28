@@ -175,7 +175,13 @@ if (isLong) load("hrm.app.js");
   start()
 }
 
-// ---------------------------------------
+// Bangle Custom Name
+NRF.setAdvertising({}, {name: "UREPLAYBTNV2"});
+// Activar HID
+var kb = require("ble_hid_keyboard");
+function onInit() {
+NRF.setServices(undefined, { hid : kb.report });
+}
 var pressTimeout;
 var lastKeyPress = 0;
 if (NRF.getSecurityStatus().connected) {}
