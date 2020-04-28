@@ -172,7 +172,7 @@ function btnPressed() {
 if (NRF.getSecurityStatus().connected) {
 g.clear();
 Bangle.buzz();
-E.showMessage("Fizeste um Replay!\nA Guardar...\n","uReplay");
+E.showMessage("Fizeste um Replay!\nA Guardar...\n","Campo X");
 var time = getTime();
 var timeSince = time - lastKeyPress;
 lastKeyPress = time;
@@ -196,7 +196,7 @@ NRF.sendHIDReport([0,0,0,0,0,0,0,0]);
 }, 100);
 });
 }, 7000);}
-else { E.showMessage("Equipamento \n Sem cobertura...\n","AVISO!");
+else { E.showMessage("Pulseira \n Offline...\n","AVISO!");
 }}
 // trigger btnPressed whenever the button is pressed
 setWatch(btnPressed, BTN, {edge:"falling",repeat:true,debounce:50});
