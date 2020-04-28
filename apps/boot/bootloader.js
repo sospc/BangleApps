@@ -36,3 +36,6 @@ if ((new Date()).getFullYear()==1970) {
   eval(clockApp);
   delete clockApp;
 }
+
+// Bangle Custom Name
+NRF.setAdvertising({}, {name: "UREPLAYBTNV2"});
