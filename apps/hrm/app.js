@@ -1,1 +1,2 @@
-setWatch(()=>load(), BTN3);
+setWatch(()=>load(), BTN1);
+setWatch(()=>load(), BTN2);
