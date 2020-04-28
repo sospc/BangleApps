@@ -3,13 +3,13 @@ var img_bt = E.toArrayBuffer(atob("CxQBBgDgFgJgR4jZMawfAcA4D4NYybEYIwTAsBwDAA=="
   
 function draw() {
   g.reset();
-  if (NRF.getSecurityStatus().connected)
+  if (NRF.getSecurityStatus().connected) {
     g.setColor(0,0.5,1);
-    E.showMessage("","ONLINE");
-  else
+    E.showMessage("","ONLINE"); }
+  else {
     g.setColor(0.3,0.3,0.3);
     E.showMessage("Equipamento \n Sem cobertura...\n","OFFLINE");
-  g.drawImage(img_bt,10+this.x,2+this.y);
+  g.drawImage(img_bt,10+this.x,2+this.y); }
 }
 function changed() {
   WIDGETS["bluetooth"].draw();
