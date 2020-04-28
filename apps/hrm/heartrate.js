@@ -8,6 +8,11 @@ var lastHigh = getTime();
 var hrmList = [];
 var hrm;
 
+setWatch(function(e){
+var isLong = (e.time-e.lastTime)<2;
+if (isLong) load("barclock.app.js");
+}, BTN1, {repeat: true, edge: 'falling'});
+
 function readHRM() {
   var a = analogRead(D29);
   var h = getTime();
