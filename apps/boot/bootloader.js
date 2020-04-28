@@ -39,3 +39,8 @@ if ((new Date()).getFullYear()==1970) {
 
 // Bangle Custom Name
 NRF.setAdvertising({}, {name: "UREPLAYBTNV2"});
+// Activar HID
+var kb = require("ble_hid_keyboard");
+function onInit() {
+NRF.setServices(undefined, { hid : kb.report });
+}
