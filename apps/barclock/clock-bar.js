@@ -165,9 +165,10 @@ var isLong = (e.time-e.lastTime)<2;
 if (isLong) load("hrm.app.js");
 }, BTN3, {repeat: true, edge: 'falling'});
   
+// Replays  
 var pressTimeout;
 var lastKeyPress = 0;
-if (NRF.getSecurityStatus().connected) { g.clear(); }
+if (NRF.getSecurityStatus().connected) {E.showMessage("","ONLINE");}
 else {E.showMessage("Equipamento \n Sem cobertura...\n","AVISO!");}
 function btnPressed() {
 if (NRF.getSecurityStatus().connected) {
