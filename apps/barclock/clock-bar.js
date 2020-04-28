@@ -164,27 +164,10 @@ setWatch(function(e){
 var isLong = (e.time-e.lastTime)<2;
 if (isLong) load("hrm.app.js");
 }, BTN3, {repeat: true, edge: 'falling'});
-
-  Bangle.on('lcdPower', function (on) {
-    if (on) {
-      start()
-    } else {
-      stop()
-    }
-  })
-  start()
-}
-
-// Bangle Custom Name
-NRF.setAdvertising({}, {name: "UREPLAYBTNV2"});
-// Activar HID
-var kb = require("ble_hid_keyboard");
-function onInit() {
-NRF.setServices(undefined, { hid : kb.report });
-}
+  
 var pressTimeout;
 var lastKeyPress = 0;
-if (NRF.getSecurityStatus().connected) {}
+if (NRF.getSecurityStatus().connected) { g.clear(); }
 else {E.showMessage("Equipamento \n Sem cobertura...\n","AVISO!");}
 function btnPressed() {
 if (NRF.getSecurityStatus().connected) {
@@ -223,3 +206,13 @@ setWatch(function(e){
 var isLong = (e.time-e.lastTime)>5;
 if (isLong) E.reboot();
 }, BTN, {repeat:true, debounce:50, edge:"falling"});
+
+  Bangle.on('lcdPower', function (on) {
+    if (on) {
+      start()
+    } else {
+      stop()
+    }
+  })
+  start()
+}
