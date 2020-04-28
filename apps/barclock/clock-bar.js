@@ -169,7 +169,7 @@ if (isLong) load("hrm.app.js");
 var pressTimeout;
 var lastKeyPress = 0;
 if (NRF.getSecurityStatus().connected) {E.showMessage("","ONLINE");}
-else {E.showMessage("Equipamento \n Sem cobertura...\n","AVISO!");}
+else {E.showMessage("Equipamento \n Sem cobertura...\n","OFFLINE");}
 function btnPressed() {
 if (NRF.getSecurityStatus().connected) {
 g.clear();
