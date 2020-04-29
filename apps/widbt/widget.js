@@ -23,5 +23,7 @@ function changed() {
 }
 NRF.on('connect',changed);
 NRF.on('disconnect',changed);
+NRF.on('connect',onoff);
+NRF.on('disconnect',onoff);
 WIDGETS["bluetooth"]={area:"tr",width:24,draw:draw};
 })()
