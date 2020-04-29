@@ -9,13 +9,16 @@ function draw() {
     g.setColor(0.3,0.3,0.3);
   g.drawImage(img_bt,10+this.x,2+this.y);
 }
-function changed() {
-  g.reset();
+function onoff() {
+   g.reset();
   if (NRF.getSecurityStatus().connected)
     E.showMessage("","ONLINE");
   else
     E.showMessage("","OFFLINE");
+}
+function changed() {
   WIDGETS["bluetooth"].draw();
+  WIDGETS["bluetooth"].onoff();
   g.flip();// turns screen on
 }
 NRF.on('connect',changed);
