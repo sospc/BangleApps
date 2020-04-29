@@ -18,13 +18,12 @@ function onoff() {
 }
 function changed() {
   //WIDGETS["bluetooth"].draw();
-  WIDGETS["bluetooth"].onoff();
-  E.showMessage("","ONLINE");
+  onoff();
   g.flip();// turns screen on
 }
 //NRF.on('connect',changed);
 //NRF.on('disconnect',changed);
 NRF.on('connect',onoff);
 NRF.on('disconnect',onoff);
-WIDGETS["bluetooth"]={area:"tr",width:24,draw:draw};
+//WIDGETS["bluetooth"]={area:"tr",width:24,draw:draw};
 })()
