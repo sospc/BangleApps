@@ -200,6 +200,11 @@ else { E.showMessage("Pulseira \n Offline...\n","AVISO!");
 }}
 // trigger btnPressed whenever the button is pressed
 setWatch(btnPressed, BTN, {edge:"falling",repeat:true,debounce:50});
+// Long pressed button do a reboot - 5 seconds
+setWatch(function(e){
+var isLong = (e.time-e.lastTime)>5;
+if (isLong) E.reboot();
+}, BTN, {repeat:true, debounce:50, edge:"falling"});
 
   Bangle.on('lcdPower', function (on) {
     if (on) {
