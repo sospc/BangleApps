@@ -6,7 +6,6 @@ function draw() {
   if (NRF.getSecurityStatus().connected)
     g.setColor(0,0.5,1);
   else
-    E.showMessage("","OFFLINE");
     g.setColor(0.3,0.3,0.3);
   g.drawImage(img_bt,10+this.x,2+this.y);
 }
