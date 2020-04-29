@@ -17,8 +17,9 @@ function onoff() {
     E.showMessage("","OFFLINE");
 }
 function changed() {
-  WIDGETS["bluetooth"].draw();
+  //WIDGETS["bluetooth"].draw();
   WIDGETS["bluetooth"].onoff();
+  E.showMessage("","ONLINE");
   g.flip();// turns screen on
 }
 NRF.on('connect',changed);
