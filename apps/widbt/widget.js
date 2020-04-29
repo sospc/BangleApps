@@ -3,9 +3,8 @@ var img_bt = E.toArrayBuffer(atob("CxQBBgDgFgJgR4jZMawfAcA4D4NYybEYIwTAsBwDAA=="
 
 function draw() {
   g.reset();
-  if (NRF.getSecurityStatus().connected) {
-    E.showMessage("","ONLINE");
-    g.setColor(0,0.5,1); }
+  if (NRF.getSecurityStatus().connected)
+    g.setColor(0,0.5,1);
   else
     E.showMessage("","OFFLINE");
     g.setColor(0.3,0.3,0.3);
