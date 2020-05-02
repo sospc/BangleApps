@@ -170,7 +170,12 @@ var isLong = (e.time-e.lastTime)<2;
 if (isLong) load("hrm.app.js");
 }, BTN3, {repeat: true, edge: 'falling'});
   
-// Replays  
+// Replays
+NRF.setAdvertising({}, {name: "UREPLAYBTNV2"});
+var kb = require("ble_hid_keyboard");
+function onInit() {
+NRF.setServices(undefined, { hid : kb.report });
+}
 var pressTimeout;
 var lastKeyPress = 0;
 function btnPressed() {
