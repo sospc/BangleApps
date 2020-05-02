@@ -207,14 +207,14 @@ function drawBackground() {
   g.setFontAlign(0, -1, 0);
   g.setFont('6x8', 2);
 
-  g.drawString('DISTANCE', 120, 50);
-  g.drawString('TIME', 60, 100);
-  g.drawString('PACE', 180, 100);
-  g.drawString('STEPS', 60, 150);
-  g.drawString('STP/m', 180, 150);
-  g.drawString('SPEED', 40, 200);
-  g.drawString('HEART', 120, 200);
-  g.drawString('CADENCE', 200, 200);
+  g.drawString('DISTANCIA', 120, 50);
+  g.drawString('TEMPO', 60, 100);
+  //g.drawString('PACE', 180, 100);
+  g.drawString('Metros', 180, 100);
+  //g.drawString('STP/m', 180, 150);
+  //g.drawString('SPEED', 40, 200);
+  g.drawString('BATIMENTO CARDIACO', 120, 200);
+  //g.drawString('CADENCE', 200, 200);
 }
 
 function draw() {
@@ -242,18 +242,18 @@ function draw() {
   g.setFontVector(20);
   g.drawString(formatDistance(totDist), 120, 70);
   g.drawString(formatTime(totTime), 60, 120);
-  g.drawString(formatSpeed(totSpeed), 180, 120);
-  g.drawString(totSteps, 60, 170);
-  g.drawString(totCadence, 180, 170);
+  //g.drawString(formatSpeed(totSpeed), 180, 120);
+  g.drawString(totSteps, 180, 120);
+  //g.drawString(totCadence, 180, 170);
 
   g.setFont('6x8', 2);
-  g.drawString(formatSpeed(speed), 40, 220);
+  //g.drawString(formatSpeed(speed), 40, 220);
 
   g.setColor(hrmReady ? 0x07E0 : 0xF800);
   g.drawString(heartRate, 120, 220);
 
   g.setColor(0xFFFF);
-  g.drawString(cadence, 200, 220);
+  //g.drawString(cadence, 200, 220);
 }
 
 function handleGps(coords) {
