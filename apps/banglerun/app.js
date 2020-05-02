@@ -210,7 +210,7 @@ function drawBackground() {
   g.drawString('DISTANCIA', 120, 50);
   g.drawString('TEMPO', 60, 100);
   //g.drawString('PACE', 180, 100);
-  g.drawString('Metros', 180, 100);
+  g.drawString('CALORIAS', 180, 100);
   //g.drawString('STP/m', 180, 150);
   //g.drawString('SPEED', 40, 200);
   g.drawString('BATIMENTO CARDIACO', 120, 200);
@@ -232,11 +232,11 @@ function draw() {
 
   g.setFontAlign(-1, -1, 0);
   g.setColor(gpsReady ? 0x07E0 : 0xF800);
-  g.drawString(' GPS', 6, 30);
+  //g.drawString(' GPS', 6, 30);
 
   g.setFontAlign(1, -1, 0);
   g.setColor(0xFFFF);
-  g.drawString(formatClock(new Date()), 234, 30);
+  g.drawString(formatClock(new Date()), 240, 10);
 
   g.setFontAlign(0, -1, 0);
   g.setFontVector(20);
@@ -310,7 +310,7 @@ draw();
 
 setInterval(draw, 500);
 
-var locked = false; 
+var locked = true; 
 setWatch(function() { 
 locked = !locked; 
 if (locked) setWatch(start, BTN3, { repeat: true });
