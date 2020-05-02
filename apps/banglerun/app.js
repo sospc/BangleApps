@@ -236,7 +236,7 @@ function draw() {
 
   g.setFontAlign(1, -1, 0);
   g.setColor(0xFFFF);
-  g.drawString(formatClock(new Date()), 240, 10);
+  g.drawString(formatClock(new Date()), 235, 30);
 
   g.setFontAlign(0, -1, 0);
   g.setFontVector(20);
@@ -310,13 +310,13 @@ draw();
 
 setInterval(draw, 500);
 
-var locked = true; 
+var locked = false; 
 setWatch(function() { 
 locked = !locked; 
 if (locked) setWatch(start, BTN3, { repeat: true });
 else 
 setWatch(stop, BTN3, { repeat: true });
-}, BTN3, {repeat:true, edge:"rising", debounce:50});
+}, BTN3, {repeat:true});
 
 setWatch(function(e){
 var isLong = (e.time-e.lastTime)<2;
