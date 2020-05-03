@@ -314,15 +314,15 @@ setInterval(draw, 500);
 var locked = false; 
 setWatch(function() { 
 locked = !locked; 
-if (locked) setWatch(stop, BTN3, { repeat: true });
+if (locked) setWatch(stop, BTN3, { repeat: true, edge:"falling" });
 else 
-setWatch(start, BTN3, { repeat: true });
-}, BTN3, {repeat:true});
+setWatch(start, BTN3, { repeat: true, edge:"falling" });
+}, BTN3, {repeat:true, edge:"falling"});
 
 setWatch(function(e){
 var isLong = (e.time-e.lastTime)<2;
 if (isLong) load("barclock.app.js");
-}, BTN1, {repeat: true});
+}, BTN1, {repeat: true, edge:"falling"});
 
 setWatch(function(e){
 var isLong = (e.time-e.lastTime)<2;
