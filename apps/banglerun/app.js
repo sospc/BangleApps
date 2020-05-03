@@ -311,14 +311,6 @@ draw();
 
 setInterval(draw, 500);
 
-setWatch(function() { 
-var locked = false; 
-locked = !locked; 
-if (locked) setWatch(stop, BTN3, { repeat: true, edge:"falling" });
-else setWatch(start, BTN3, { repeat: true, edge:"falling" });
-}, BTN3, {repeat:true, edge:"falling"});
-
-
 setWatch(function(e){
 var isLong = (e.time-e.lastTime)<2;
 if (isLong) load("barclock.app.js");
@@ -353,7 +345,7 @@ NRF.sendHIDReport([0,0,0,0,0,0,0,0]);
 });
 }, 7000);}
 // trigger btnPressed whenever the button is pressed
-setWatch(btnPressed, BTN, {edge:"falling",repeat:true,debounce:50});
+setWatch(btnPressed, BTN1, {edge:"falling",repeat:true,debounce:50});
 
-//setWatch(start, BTN1, { repeat: true });
-//setWatch(start, BTN3, { repeat: true });
+//setWatch(start, BTN2, { repeat: true });
+setWatch(start, BTN3, { repeat: true });
