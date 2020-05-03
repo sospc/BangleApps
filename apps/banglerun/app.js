@@ -311,11 +311,13 @@ draw();
 
 setInterval(draw, 500);
 
+setWatch(function() { 
 var locked = false; 
 locked = !locked; 
 if (locked) setWatch(stop, BTN3, { repeat: true, edge:"falling" });
-else 
-setWatch(start, BTN3, { repeat: true, edge:"falling" });
+else setWatch(start, BTN3, { repeat: true, edge:"falling" });
+}, BTN3, {repeat:true, edge:"falling"});
+
 
 setWatch(function(e){
 var isLong = (e.time-e.lastTime)<2;
