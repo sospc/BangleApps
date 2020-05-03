@@ -311,10 +311,10 @@ draw();
 
 setInterval(draw, 500);
 
-setWatch(function(e){
+/*setWatch(function(e){
 var isLong = (e.time-e.lastTime)<2;
 if (isLong) load("barclock.app.js");
-}, BTN2, {repeat: true, edge:"falling"});
+}, BTN2, {repeat: true, edge:"falling"});*/
 
 // Replays  
 var pressTimeout;
