@@ -148,7 +148,7 @@ class Gps {
 class Step {
   constructor(size) {
     this._buffer = [];
-    this._size = size * 0.6;
+    this._size = size;
   }
 
   getCadence() {
