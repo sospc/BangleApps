@@ -232,7 +232,7 @@ function draw() {
 
   g.setFontAlign(-1, -1, 0);
   g.setColor(gpsReady ? 0x07E0 : 0xF800);
-  //g.drawString(' GPS', 6, 30);
+  g.drawString('DADOS UTEIS', 6, 30);
 
   g.setFontAlign(1, -1, 0);
   g.setColor(0xFFFF);
@@ -240,7 +240,8 @@ function draw() {
 
   g.setFontAlign(0, -1, 0);
   g.setFontVector(20);
-  g.drawString(formatDistance(totDist), 120, 70);
+  //g.drawString(formatDistance(totDist), 120, 70);
+  g.drawString(formatDistance(totSteps), 120, 70);
   g.drawString(formatTime(totTime), 60, 120);
   //g.drawString(formatSpeed(totSpeed), 180, 120);
   g.drawString(totSteps, 180, 120);
@@ -313,20 +314,20 @@ setInterval(draw, 500);
 var locked = false; 
 setWatch(function() { 
 locked = !locked; 
-if (locked) setWatch(start, BTN3, { repeat: true });
+if (locked) setWatch(stop, BTN3, { repeat: true });
 else 
-setWatch(stop, BTN3, { repeat: true });
+setWatch(start, BTN3, { repeat: true });
 }, BTN3, {repeat:true});
 
 setWatch(function(e){
 var isLong = (e.time-e.lastTime)<2;
 if (isLong) load("barclock.app.js");
-}, BTN1, {repeat: true, edge: 'falling'});
+}, BTN1, {repeat: true});
 
 setWatch(function(e){
 var isLong = (e.time-e.lastTime)<2;
 if (isLong) load("barclock.app.js");
-}, BTN2, {repeat: true, edge: 'falling'});
+}, BTN2, {repeat: true});
 
 //setWatch(start, BTN1, { repeat: true });
 //setWatch(start, BTN3, { repeat: true });
