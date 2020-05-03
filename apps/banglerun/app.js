@@ -232,7 +232,7 @@ function draw() {
 
   g.setFontAlign(-1, -1, 0);
   g.setColor(gpsReady ? 0x07E0 : 0xF800);
-  g.drawString('DADOS UTEIS', 6, 30);
+  //g.drawString('GPS', 6, 30);
 
   g.setFontAlign(1, -1, 0);
   g.setColor(0xFFFF);
@@ -314,24 +314,26 @@ setInterval(draw, 500);
 var locked = false; 
 setWatch(function() { 
 locked = !locked; 
-if (locked) setWatch(stop, BTN3, { repeat: true, edge:"falling" });
+if (locked) setWatch(stop, { repeat: true, edge:"rising" });
 else 
-setWatch(start, BTN3, { repeat: true, edge:"falling" });
-}, BTN3, {repeat:true, edge:"falling"});
+setWatch(start, { repeat: true, edge:"rising" });
+}, BTN3, {repeat:true, edge:"rising"});
 
 setWatch(function(e){
 var isLong = (e.time-e.lastTime)<2;
 if (isLong) load("barclock.app.js");
-}, BTN2, {repeat: true, edge:"falling"});
+}, BTN2, {repeat: true, edge:"rising"});
+
+setWatch(function(e){
+var isLong = (e.time-e.lastTime)<2;
+if (isLong) load("barclock.app.js");
+}, BTN1, {repeat: true, edge:"rising"});
 
 // Replays
 var pressTimeout;
 var lastKeyPress = 0;
 function btnPressed() {
-if (NRF.getSecurityStatus().connected) {
-g.clear();
 Bangle.buzz();
-E.showMessage("Fizeste um Replay!\nA Guardar...\n","Campo X");
 var time = getTime();
 var timeSince = time - lastKeyPress;
 lastKeyPress = time;
@@ -354,9 +356,8 @@ setTimeout(function() {
 NRF.sendHIDReport([0,0,0,0,0,0,0,0]); 
 }, 100);
 });
-}, 7000);}
-else { E.showMessage("Pulseira \n Offline...\n","AVISO!");
-}}
+}, 7000);
+}
 // trigger btnPressed whenever the button is pressed
 setWatch(btnPressed, BTN, {edge:"falling",repeat:true,debounce:50});
 // Long pressed button do a reboot - 5 seconds
