@@ -322,12 +322,48 @@ setWatch(start, BTN3, { repeat: true, edge:"falling" });
 setWatch(function(e){
 var isLong = (e.time-e.lastTime)<2;
 if (isLong) load("barclock.app.js");
-}, BTN1, {repeat: true, edge:"falling"});
+}, BTN2, {repeat: true, edge:"falling"});
 
+// Replays
+var pressTimeout;
+var lastKeyPress = 0;
+function btnPressed() {
+if (NRF.getSecurityStatus().connected) {
+g.clear();
+Bangle.buzz();
+E.showMessage("Fizeste um Replay!\nA Guardar...\n","Campo X");
+var time = getTime();
+var timeSince = time - lastKeyPress;
+lastKeyPress = time;
+if (timeSince < 10) return; // ignore if < 10 sec ago 
+if (pressTimeout) return; // ignore a second press within the 10 sec
+// wait 5 seconds
+pressTimeout = setTimeout(function() {
+pressTimeout = undefined;
+NRF.sendHIDReport([0,0,30,0,0,0,0,0], function() {
+setTimeout(function() {
+NRF.sendHIDReport([0,0,0,0,0,0,0,0]); 
+}, 100);
+});
+}, 5000);
+// wait 7 seconds for replay
+pressTimeout = setTimeout(function() {
+pressTimeout = undefined;
+NRF.sendHIDReport([0,0,31,0,0,0,0,0], function() {
+setTimeout(function() {
+NRF.sendHIDReport([0,0,0,0,0,0,0,0]); 
+}, 100);
+});
+}, 7000);}
+else { E.showMessage("Pulseira \n Offline...\n","AVISO!");
+}}
+// trigger btnPressed whenever the button is pressed
+setWatch(btnPressed, BTN, {edge:"falling",repeat:true,debounce:50});
+// Long pressed button do a reboot - 5 seconds
 setWatch(function(e){
-var isLong = (e.time-e.lastTime)<2;
-if (isLong) load("barclock.app.js");
-}, BTN2, {repeat: true});
+var isLong = (e.time-e.lastTime)>5;
+if (isLong) E.reboot();
+}, BTN, {repeat:true, debounce:50, edge:"falling"});
 
 //setWatch(start, BTN1, { repeat: true });
 //setWatch(start, BTN3, { repeat: true });
