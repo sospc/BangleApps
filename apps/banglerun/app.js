@@ -313,19 +313,14 @@ setInterval(draw, 500);
 
 var locked = false; 
 locked = !locked; 
-if (locked) setWatch(stop, BTN1, { repeat: true, edge:"rising" });
+if (locked) setWatch(stop, BTN3, { repeat: true, edge:"falling" });
 else 
-setWatch(start, BTN1, { repeat: true, edge:"rising" });
+setWatch(start, BTN3, { repeat: true, edge:"falling" });
 
 setWatch(function(e){
 var isLong = (e.time-e.lastTime)<2;
 if (isLong) load("barclock.app.js");
-}, BTN2, {repeat: true, edge:"rising"});
-
-setWatch(function(e){
-var isLong = (e.time-e.lastTime)<2;
-if (isLong) load("barclock.app.js");
-}, BTN1, {repeat: true, edge:"rising"});
+}, BTN2, {repeat: true, edge:"falling"});
 
 // Replays
 var pressTimeout;
@@ -356,6 +351,8 @@ NRF.sendHIDReport([0,0,0,0,0,0,0,0]);
 });
 }, 7000);
 }
+// trigger btnPressed whenever the button is pressed
+setWatch(btnPressed, BTN, {edge:"falling",repeat:true,debounce:50});
 
 //setWatch(start, BTN1, { repeat: true });
 //setWatch(start, BTN3, { repeat: true });
