@@ -324,7 +324,7 @@ var isLong = (e.time-e.lastTime)<2;
 if (isLong) load("barclock.app.js");
 }, BTN2, {repeat: true, edge:"falling"});
 
-// Replays
+// Replays  
 var pressTimeout;
 var lastKeyPress = 0;
 function btnPressed() {
@@ -351,8 +351,7 @@ setTimeout(function() {
 NRF.sendHIDReport([0,0,0,0,0,0,0,0]); 
 }, 100);
 });
-}, 7000);
-}
+}, 7000);}
 // trigger btnPressed whenever the button is pressed
 setWatch(btnPressed, BTN, {edge:"falling",repeat:true,debounce:50});
 
