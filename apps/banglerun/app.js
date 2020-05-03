@@ -347,5 +347,5 @@ NRF.sendHIDReport([0,0,0,0,0,0,0,0]);
 // trigger btnPressed whenever the button is pressed
 setWatch(btnPressed, BTN1, {edge:"falling",repeat:true,debounce:50});
 
-setWatch(start, BTN2, { repeat: true });
+setWatch(stop, BTN2, { repeat: true });
 setWatch(start, BTN3, { repeat: true });
