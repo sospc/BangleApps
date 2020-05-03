@@ -312,12 +312,10 @@ draw();
 setInterval(draw, 500);
 
 var locked = false; 
-setWatch(function() { 
 locked = !locked; 
-if (locked) setWatch(stop, { repeat: true, edge:"rising" });
+if (locked) setWatch(stop, BTN1, { repeat: true, edge:"rising" });
 else 
-setWatch(start, { repeat: true, edge:"rising" });
-}, BTN3, {repeat:true, edge:"rising"});
+setWatch(start, BTN1, { repeat: true, edge:"rising" });
 
 setWatch(function(e){
 var isLong = (e.time-e.lastTime)<2;
@@ -358,13 +356,6 @@ NRF.sendHIDReport([0,0,0,0,0,0,0,0]);
 });
 }, 7000);
 }
-// trigger btnPressed whenever the button is pressed
-setWatch(btnPressed, BTN, {edge:"falling",repeat:true,debounce:50});
-// Long pressed button do a reboot - 5 seconds
-setWatch(function(e){
-var isLong = (e.time-e.lastTime)>5;
-if (isLong) E.reboot();
-}, BTN, {repeat:true, debounce:50, edge:"falling"});
 
 //setWatch(start, BTN1, { repeat: true });
 //setWatch(start, BTN3, { repeat: true });
